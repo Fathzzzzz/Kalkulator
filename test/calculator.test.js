@@ -67,6 +67,13 @@ test("ubah tanda", () => {
   assert.equal(screen(["7", "+", "3", "+/-", "="]), "4");
 });
 
+test("ubah tanda setelah operator mengubah angka terakhir", () => {
+  const state = press(["1", "2", "3", "+", "+/-"]);
+  assert.equal(E.displayValue(state), "-123");
+  assert.equal(E.expressionText(state), "-123 +");
+  assert.equal(screen(["1", "2", "3", "+", "+/-", "4", "="]), "-119");
+});
+
 test("hapus digit dan hapus semua", () => {
   assert.equal(screen(["1", "2", "3", "<"]), "12");
   assert.equal(screen(["5", "<", "<"]), "0");

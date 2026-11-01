@@ -45,7 +45,7 @@ npm run serve     # http://localhost:4173
 | `Backspace` | Hapus digit terakhir |
 | `Esc` atau `c` | Hapus semua |
 
-`Enter` dan `Spasi` pada tombol yang sedang fokus memakai perilaku bawaan browser, jadi tidak ada aksi ganda.
+`Enter` selalu berarti hitung, di mana pun fokus berada. `Spasi` pada tombol yang sedang fokus memakai klik bawaan browser, jadi tombol tidak terpicu dua kali.
 
 ## Test
 

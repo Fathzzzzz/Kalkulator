@@ -263,11 +263,20 @@
       state.current =
         state.current.charAt(0) === "-" ? state.current.slice(1) : "-" + state.current;
     } else {
-      var raw = lastNumberRaw(state);
-      if (raw === null) {
+      // Tidak ada angka yang sedang diketik: ubah angka terakhir di ekspresi,
+      // karena itulah yang tampil di layar.
+      var index = -1;
+      for (var i = state.tokens.length - 1; i >= 0; i--) {
+        if (state.tokens[i].kind === "num") {
+          index = i;
+          break;
+        }
+      }
+      if (index === -1) {
         state.current = "-0";
-      } else if (state.tokens.length && lastToken(state).kind === "num") {
-        state.tokens[state.tokens.length - 1] = {
+      } else {
+        var raw = state.tokens[index].raw;
+        state.tokens[index] = {
           kind: "num",
           raw: raw.charAt(0) === "-" ? raw.slice(1) : "-" + raw,
         };
