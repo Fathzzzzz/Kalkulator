@@ -1,0 +1,16 @@
+{
+  "name": "kalkulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kalkulator aritmetika sederhana: HTML, JavaScript, dan Tailwind CSS.",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o dist/tailwind.css --minify",
+    "dev": "tailwindcss -i src/input.css -o dist/tailwind.css --watch",
+    "serve": "npx --yes serve . -l 4173",
+    "test": "node --test test/calculator.test.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
